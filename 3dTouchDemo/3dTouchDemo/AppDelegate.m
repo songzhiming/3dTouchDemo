@@ -19,8 +19,8 @@
     // Override point for customization after application launch.
     UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithTemplateImageName:@""];
     UIApplicationShortcutItem *shortItem0 = [[UIApplicationShortcutItem alloc] initWithType:@"test" localizedTitle:@"hello" localizedSubtitle:@"hello world" icon:icon userInfo:@{@"":@""}];
-    UIApplicationShortcutItem *shortItem1 = [[UIApplicationShortcutItem alloc] initWithType:@"打开" localizedTitle:@"打开"];
-    UIApplicationShortcutItem *shortItem2 = [[UIApplicationShortcutItem alloc] initWithType:@"弹框" localizedTitle:@"弹框"];
+    UIApplicationShortcutItem *shortItem1 = [[UIApplicationShortcutItem alloc] initWithType:@"open" localizedTitle:@"open"];
+    UIApplicationShortcutItem *shortItem2 = [[UIApplicationShortcutItem alloc] initWithType:@"alert" localizedTitle:@"alert"];
     NSArray *shortItems = [[NSArray alloc] initWithObjects:shortItem0,shortItem1, shortItem2, nil];
     [[UIApplication sharedApplication] setShortcutItems:shortItems];
     return YES;
@@ -49,7 +49,7 @@
 }
 //点击处理
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler{
-    if ([shortcutItem.localizedTitle  isEqual: @"弹框"]) {
+    if ([shortcutItem.localizedTitle  isEqual: @"alert"]) {
         return;
     }
 }
