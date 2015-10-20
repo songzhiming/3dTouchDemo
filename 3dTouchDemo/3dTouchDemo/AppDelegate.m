@@ -18,7 +18,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"TabBar_HomeSelected"];
+    //有图标
     UIApplicationShortcutItem *shortItem0 = [[UIApplicationShortcutItem alloc] initWithType:@"test" localizedTitle:@"hello" localizedSubtitle:@"hello world" icon:icon userInfo:@{@"":@""}];
+    //没图标
     UIApplicationShortcutItem *shortItem1 = [[UIApplicationShortcutItem alloc] initWithType:@"open" localizedTitle:@"open"];
     UIApplicationShortcutItem *shortItem2 = [[UIApplicationShortcutItem alloc] initWithType:@"alert" localizedTitle:@"alert"];
     NSArray *shortItems = [[NSArray alloc] initWithObjects:shortItem0,shortItem1, shortItem2, nil];
@@ -50,8 +52,7 @@
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler{
     if ([shortcutItem.localizedTitle  isEqual: @"alert"]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"test" delegate:self cancelButtonTitle:@"哦" otherButtonTitles:nil, nil];
-        [alert show];
+        //todo  do some thing
         return;
     }
 }
