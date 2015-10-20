@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithTemplateImageName:@""];
+    UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithTemplateImageName:@"TabBar_HomeSelected"];
     UIApplicationShortcutItem *shortItem0 = [[UIApplicationShortcutItem alloc] initWithType:@"test" localizedTitle:@"hello" localizedSubtitle:@"hello world" icon:icon userInfo:@{@"":@""}];
     UIApplicationShortcutItem *shortItem1 = [[UIApplicationShortcutItem alloc] initWithType:@"open" localizedTitle:@"open"];
     UIApplicationShortcutItem *shortItem2 = [[UIApplicationShortcutItem alloc] initWithType:@"alert" localizedTitle:@"alert"];
@@ -47,9 +47,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-//点击处理
+
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler{
     if ([shortcutItem.localizedTitle  isEqual: @"alert"]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"test" delegate:self cancelButtonTitle:@"哦" otherButtonTitles:nil, nil];
+        [alert show];
         return;
     }
 }
